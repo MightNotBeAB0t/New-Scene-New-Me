@@ -1,0 +1,78 @@
+------------------------------------------------------------------------------------------------------
+What I prompted: Write me code and instance variables for the LastYear class, also make it so the images appear in order
+using "Airsoft.JPG" "Mg.JPG" "Monitor.jpeg" "Wisdom.JPG".
+
+
+*side note* I asked it to write it, then just pretty much copied the same for the ThisYear class since
+its the same thing.
+
+---------------------------------------------------------------
+Make me a method to draw all the images in the ThisYear class.
+
+---------------------------------------------------------------
+Help me implement the file reader in the LastYear class.
+
+------------------------------------------------------------------------------------------------------
+What Solution I recieved:
+
+import org.code.theater.*;
+import org.code.media.*;
+
+/*
+ * Displays a slideshow of images representing events from last year.
+ * Images are read from a text file and shown one at a time.
+ */
+public class LastYear extends Scene {
+
+  // Stores image filenames and background clear color
+  private String[] images;
+  private String clearColor;
+
+
+  // No-argument constructor
+
+  public LastYear() {
+    images = FileReader.toStringArray("data.txt");
+    clearColor = "white";
+  }
+
+
+  // Parameterized constructor
+
+  public LastYear(String[] images, String clearColor) {
+    this.images = images;
+    this.clearColor = clearColor;
+  }
+
+  /*
+   * Main scene method
+   * Controls what happens when this scene plays
+   */
+  public void drawScene() {
+    drawImagesInOrder();
+  }
+
+  /*
+   * Displays each image in sequence with a pause between them
+   */
+  public void drawImagesInOrder() {
+    for (int i = 0; i < images.length; i++) {
+      drawImage(images[i], 0, 0, getWidth());
+      pause(1.5);
+      clear(clearColor);
+    }
+  }
+}
+------------------------------------------------------------------------------------------------------
+  public void drawImagesInOrder() {
+    for (int i = 0; i < images.length; i++) {
+      drawImage(images[i], 0, 0, getWidth());
+      pause(1.5);
+      clear(clearColor);
+    }
+  }
+------------------------------------------------------------------------------------------------------
+    public LastYear() {
+    images = FileReader.toStringArray("data.txt");
+    clearColor = "white";
+  }
